@@ -1,4 +1,4 @@
-# moody
+# moodly
 
 a simple web app that hooks with last.fm and analyzes your listening patterns
 
