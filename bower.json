@@ -1,0 +1,21 @@
+{
+  "name": "moodly",
+  "description": "service that draws from last.fm and IBM Watson to analyze your music",
+  "main": "app.js",
+  "authors": [
+    "k9rosie <k9rosie@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
