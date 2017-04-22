@@ -12,8 +12,8 @@ app.use('/static', express.static(__dirname + '/bower_components'));
 
 app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/public/html/index.html');
-}
+});
 
-server.listen(port, host function() {
+server.listen(port, host, function() {
 	console.log("Listening on " + port);
-})
+});
