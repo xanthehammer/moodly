@@ -1,0 +1,10 @@
+#avatar {
+	float: left;
+	border-radius: 3px;
+}
+
+#name {
+	position: relative;
+	bottom: 9px;
+	left: 20px;
+}

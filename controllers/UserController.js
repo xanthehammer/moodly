@@ -47,8 +47,12 @@ exports.User = function(request, response) {
 
 		recentTracks.on("success", function(json) {
 			var arr = json.recenttracks.track;
+
 			async.each(arr, function(track, callback) {
 				genius.search(track.artist['#text']+" - "+track.name).then(function(res) {
+					if (res.hits[0] == undefined) {
+						return;
+					}
 					var url = res.hits[0].result.url;
 					scrapeit(url, {
 						lyrics: {
@@ -56,10 +60,14 @@ exports.User = function(request, response) {
 							eq: 0
 						}
 					}).then(function(page) {
+						if (page == undefined) {
+							return;
+						}
 						tone_analyzer.tone({ text: page.lyrics }, function(err, tone) {
 							if (err) {
 								console.log(err);
 							} else {
+
 								var song = {};
 								song.name = track.name;
 								song.artist = track.artist['#text'];
@@ -73,7 +81,11 @@ exports.User = function(request, response) {
 								callback();
 							}
 						});
+					}).catch(function(err) {
+						console.error(err);
 					});
+				}).catch(function(err) {
+					console.error(err);
 				});
 			}, function(err) {
 				if (err) {
@@ -103,6 +115,6 @@ exports.User = function(request, response) {
 var render = function(response, tracks, userData) {
 	data = {}
 	data.userData = userData;
-	data.tracks = {};
+	data.tracks = tracks;
 	response.render('user/User', data);
 }
