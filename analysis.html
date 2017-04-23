@@ -12,10 +12,10 @@
         
         <style>
             body {
+            	background-image: url("background2.png");
 				font-family: Raleway;
 				color: gray;
 				font-size: 17px;
-				font-weight: 800;
             }
  
             #avatar {
@@ -28,11 +28,12 @@
                 bottom: 9px;
                 left: 20px;
                 color: black;
-                font-weight: 800;
+                font-weight: 500;
             }
             
             .topRow {
 				margin: 0px auto;
+				padding-bottom: 20px;
 			}
 			
 			a: visited {
@@ -47,6 +48,11 @@
 			  	background-color: #00BCD4;
 				border-color: #00BCD4;
 				border-radius: 1px;
+				color: white;
+			}
+			
+			.navbar-default .navbar-brand {
+				color: white;
 			}
             
         </style>
@@ -54,11 +60,17 @@
     </head>
     <body>
     
-		<nav class="navbar navbar-default" role="navigation"></nav>
+		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Brand</a>
+			  <a class="navbar-brand" href="index.html">Moodly</a>
 			</div>
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+				<input type="text" class="form-control" placeholder="Enter your last.fm username" style="width: 225px;">
+				</div>
+				<button type="submit" class="btn btn-default">Go</button>
+			</form>
 		  </div>
 		</nav>
     
